@@ -94,12 +94,14 @@ done
 for i in `seq 1 $max`; do
 	for j in `seq 1 $nbprocess`; do
 		cpuacct_task $testpath/subgroup_$i/tasks &
+		echo $! >> task_pids
 	done
 done
 
-for job in `jobs -p`; do
-	wait $job
+for pid in $(cat task_pids); do
+	wait $pid;
 done
+rm -f task_pids
 
 acc=0
 fails=0
