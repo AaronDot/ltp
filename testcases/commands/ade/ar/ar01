@@ -477,7 +477,7 @@ do
 	rm -rf $TCtmp/lib.a
 	cd $TCdat
 
-	ar -cr $TCtmp/lib.a file0.in file2.in
+	ar -crU $TCtmp/lib.a file0.in file2.in
 	crtest
 	File1time=`ar -tv $TCtmp/lib.a | grep file0.in`
 	File2time=`ar -tv $TCtmp/lib.a | grep file2.in`
@@ -485,7 +485,7 @@ do
 	#sleep 5
 	touch -c -t $(date --date='next day' +"%Y%m%d%H%M") file0.in
 
-	ar -ru $TCtmp/lib.a file0.in file2.in 2>&1 1>/dev/null
+	ar -ruU $TCtmp/lib.a file0.in file2.in 2>&1 1>/dev/null
 	File1time1=`ar -tv $TCtmp/lib.a | grep file0.in`
 	File2time2=`ar -tv $TCtmp/lib.a | grep file2.in`
 
@@ -513,7 +513,7 @@ do
 	rm -rf $TCtmp/lib.a;cd $TCdat
 	ar -cr $TCtmp/lib.a file1.in file2.in file3.in
 	crtest
-	Sysmonth=`date | cut -f2 -d" "`
+	Sysmonth=`date | cut -f3 -d" "`
 	Month=`ar -tv $TCtmp/lib.a | grep "file2.in" | awk '{print $4}'`
 	Count=`ar -tv $TCtmp/lib.a | wc -l`
 
