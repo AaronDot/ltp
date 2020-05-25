@@ -174,7 +174,7 @@ fi
 echo "Assertion 5 .................."
 
 $LD -shared $TCdat/f1.obj $TCdat/d1.obj -o $TCtmp/test.lib
-file $TCtmp/test.lib | grep -q shared
+file $TCtmp/test.lib | grep -q -e 'pie executable' -e 'shared object'
 if [ $? -eq 0 ]; then
 	echo "-)"
 else
