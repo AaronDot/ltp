@@ -36,6 +36,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/time.h>
+#include <sys/sysmacros.h>
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>

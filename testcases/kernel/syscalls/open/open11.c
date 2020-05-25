@@ -64,6 +64,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <sys/sysmacros.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
