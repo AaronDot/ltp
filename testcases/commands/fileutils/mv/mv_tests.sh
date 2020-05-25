@@ -169,7 +169,7 @@ test02()
 			       "backup file2."
 	fi
 
-	if [ "$MD5_old" == "$MD5_backup" -a -f "tmpfile2~" ]; then
+	if [ "$MD5_old" = "$MD5_backup" -a -f "tmpfile2~" ]; then
 		tst_resm TPASS "Test #2: mv -b success"
 	else
 		tst_resm TFAIL "Test #2: mv -b failed"
